@@ -21,17 +21,17 @@ RUN apt-get update && \
     apt-get clean
 
 # Install asdf
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.2.1
+RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0
 ENV PATH $HOME/.asdf/bin:$HOME/.asdf/shims:$PATH
 
 # Install Erlang
-ENV ERLANG_VERSION 19.0
+ENV ERLANG_VERSION 20.0
 RUN asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git && \
     asdf install erlang $ERLANG_VERSION && \
     asdf global erlang $ERLANG_VERSION
 
 # Install Elixir
-ENV ELIXIR_VERSION 1.3.2
+ENV ELIXIR_VERSION 1.5.0-otp-20
 RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git && \
     asdf install elixir $ELIXIR_VERSION && \
     asdf global elixir $ELIXIR_VERSION
