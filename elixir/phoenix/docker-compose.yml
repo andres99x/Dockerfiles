@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: mix phx.server
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+  db:
+    image: postgres
